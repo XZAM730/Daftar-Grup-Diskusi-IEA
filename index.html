@@ -1,452 +1,184 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>IEA • Pendaftaran Grup Diskusi & Sharing Ilmu</title>
-<meta name="description" content="Form pendaftaran IEA — minimal umur 15. Hanya yang berumur <15 yang tidak lolos. Suara klik + soundtrack + tampilan keren." />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%237df9ff'/><text x='50' y='57' font-size='40' text-anchor='middle' fill='%23001'>IEA</text></svg>">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IEA — Pendaftaran Grup Diskusi Resmi</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  /* Theme: dark neon glass, responsive */
-  :root{
-    --bg1:#060812; --bg2:#071022;
-    --glass: rgba(255,255,255,0.04);
-    --neon1:#7df9ff; --neon2:#9b7dff; --accent:#ffd166;
-    --muted: rgba(232,241,255,0.6);
-    --radius:14px; --card-blur:14px;
-    --maxw:1100px;
-  }
-  *{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
-  html,body{height:100%;margin:0;background:radial-gradient(1200px 600px at 10% 10%, rgba(125,125,255,0.05), transparent), linear-gradient(120deg,var(--bg1),var(--bg2));color:#e9f9ff;}
-  /* animated gradient strip */
-  header.site-hero{
-    position:relative;padding:28px 20px 16px;overflow:hidden;
-  }
-  .hero-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:18px;justify-content:space-between}
-  .logo{
-    display:flex;gap:12px;align-items:center;
-  }
-  .logo .badge{
-    width:66px;height:66px;border-radius:12px;background:linear-gradient(135deg,var(--neon1),var(--neon2));display:grid;place-items:center;font-weight:800;color:#001;font-size:18px;box-shadow:0 10px 30px rgba(123,125,255,0.12);
-  }
-  .site-title{font-size:20px;font-weight:800;letter-spacing:.4px}
-  .site-sub{color:var(--muted);font-size:13px;margin-top:4px}
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #020024, #090979, #00d4ff);
+        background-size: 400% 400%;
+        animation: gradientMove 12s infinite alternate;
+        color: white;
+        overflow-x: hidden;
+    }
 
-  /* main layout */
-  .container{max-width:var(--maxw);margin:28px auto;padding:18px;display:grid;grid-template-columns:1fr 420px;gap:24px;}
-  @media (max-width:980px){.container{grid-template-columns:1fr;padding:16px} .hero-inner{flex-direction:column;align-items:flex-start}}
+    @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+    }
 
-  .card{
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius:var(--radius); padding:20px;backdrop-filter: blur(var(--card-blur));
-    box-shadow: 0 18px 50px rgba(2,6,20,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
-    border:1px solid rgba(255,255,255,0.04);
-  }
+    .container {
+        max-width: 480px;
+        margin: 60px auto;
+        background: rgba(255,255,255,0.07);
+        padding: 30px;
+        border-radius: 18px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 0 25px rgba(0, 247, 255, 0.4);
+        animation: fadeIn 1.5s ease;
+    }
 
-  /* form styles */
-  form h2{margin:0 0 12px;font-size:18px}
-  label{display:block;font-size:13px;color:var(--muted);margin-bottom:8px}
-  input[type="text"], input[type="date"], textarea {
-    width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.05);
-    background: rgba(2,6,20,0.26); color: #eaffff; outline:none; font-size:14px;
-  }
-  textarea{min-height:120px;resize:vertical}
-  .hint{font-size:12px;color:rgba(232,241,255,0.55);margin-top:8px}
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
-  .row{display:flex;gap:10px}
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:0;
-    background:linear-gradient(90deg,var(--neon1),var(--neon2));color:#001;font-weight:800;cursor:pointer;
-    box-shadow: 0 14px 40px rgba(125,125,255,0.12);transition:transform .12s ease,filter .12s;
-  }
-  .btn:active{transform:translateY(2px)}
-  .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--neon1);font-weight:700}
+    h1 {
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 20px;
+        letter-spacing: 1.5px;
+    }
 
-  .meta{font-size:13px;color:var(--muted)}
-  .small{font-size:12px;color:var(--muted)}
+    label {
+        font-weight: 600;
+        font-size: 15px;
+        display: block;
+        margin-top: 15px;
+    }
 
-  /* right panel */
-  .panel .title{font-weight:800;font-size:15px}
-  .control{display:flex;gap:10px;align-items:center;margin-top:12px}
-  .control .box{padding:8px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-size:13px}
+    input, textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        margin-top: 6px;
+        font-size: 14px;
+        background: rgba(255,255,255,0.2);
+        color: white;
+    }
 
-  /* reveal area */
-  .reveal{
-    margin-top:14px;padding:12px;border-radius:12px;text-align:center;
-    background:linear-gradient(135deg, rgba(123,125,255,0.06), rgba(125,249,255,0.03));
-    border:1px solid rgba(255,255,255,0.03);display:none;
-  }
-  .whatsapp-link{display:inline-block;padding:10px 14px;border-radius:999px;background:linear-gradient(90deg,#00c851,#007e33);color:white;text-decoration:none;font-weight:800}
-  .result{margin-top:12px;padding:12px;border-radius:12px;display:none}
+    button {
+        width: 100%;
+        margin-top: 25px;
+        padding: 14px;
+        font-size: 16px;
+        font-weight: 700;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background: #00eaff;
+        color: #000;
+        transition: 0.2s;
+    }
 
-  .result.fail{background:linear-gradient(180deg, rgba(255,107,107,0.05), rgba(255,107,107,0.02));border:1px solid rgba(255,107,107,0.06); color:#ffb3b3}
-  .result.ok{background:linear-gradient(180deg, rgba(32,201,151,0.06), rgba(32,201,151,0.02));border:1px solid rgba(32,201,151,0.06); color:#c7ffe8}
+    button:hover {
+        background: #00c3d1;
+    }
 
-  footer.app-footer{text-align:center;color:var(--muted);margin-top:18px;font-size:13px}
+    #result {
+        margin-top: 25px;
+        padding: 15px;
+        border-radius: 8px;
+        display: none;
+        background: rgba(0,0,0,0.3);
+    }
 
-  /* particle background - subtle */
-  .particles{position:fixed;inset:0;z-index:0;pointer-events:none;mix-blend-mode:screen;opacity:0.06}
-
-  /* confetti */
-  .confetti{pointer-events:none;position:fixed;left:0;top:0;right:0;bottom:0;z-index:60;display:none}
-  .piece{position:absolute;width:10px;height:14px;opacity:0.95;transform-origin:center;animation:fall 1.6s linear forwards}
-  @keyframes fall{0%{transform:translateY(-10vh) rotate(0) scale(1)}100%{transform:translateY(110vh) rotate(720deg) scale(.9);opacity:0.95}}
+    audio { display: none; }
 </style>
 </head>
+
 <body>
-  <header class="site-hero" role="banner">
-    <div class="hero-inner" style="position:relative;z-index:2;">
-      <div style="display:flex;flex-direction:column">
-        <div class="logo">
-          <div class="badge">IEA</div>
-          <div>
-            <div class="site-title">IEA — Diskusi & Sharing Ilmu</div>
-            <div class="site-sub">Form pendaftaran • Minimal umur 15 tahun • Hanya umur <15 yang tidak lolos</div>
-          </div>
-        </div>
-      </div>
 
-      <div style="display:flex;gap:10px;align-items:center">
-        <div class="small">Suara klik + soundtrack • Tampilan neon</div>
-        <button id="globalPlay" class="btn ghost" style="padding:10px 12px">▶️ Aktifkan Audio</button>
-      </div>
-    </div>
-  </header>
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop>
+    <source src="https://files.catbox.moe/7t9r4y.mp3" type="audio/mpeg">
+</audio>
 
-  <div class="container" role="main">
-    <!-- left: form -->
-    <section class="card" aria-labelledby="form-title" style="position:relative;z-index:2">
-      <form id="regForm" autocomplete="off" novalidate>
-        <h2 id="form-title">Form Pendaftaran Grup IEA</h2>
-        <p class="meta">Isi data: Nama, Tanggal Lahir, dan jawaban (jawaban boleh apa saja—tidak mempengaruhi lolos). Sistem hanya memeriksa umur.</p>
+<!-- Click Sound -->
+<audio id="clickSound">
+    <source src="https://files.catbox.moe/0xuy9e.mp3" type="audio/mpeg">
+</audio>
 
-        <div style="margin-top:16px">
-          <label for="name">NAMA:</label>
-          <input id="name" name="name" type="text" placeholder="Nama lengkap (contoh: Budi Santoso)" required />
-        </div>
+<div class="container">
+    <h1>FORM PENDAFTARAN DISKUSI IEA</h1>
+    <p style="text-align:center; opacity:0.8;">Diskusi • Sharing Ilmu • Belajar Seru</p>
 
-        <div style="margin-top:12px">
-          <label for="dob">TANGGAL LAHIR:</label>
-          <input id="dob" name="dob" type="date" required />
-          <div class="hint">Minimal umur: <strong id="minAgeBadge">15</strong> tahun — hanya yang lebih muda yang tidak lolos.</div>
-        </div>
+    <label>Nama:</label>
+    <input type="text" id="nama">
 
-        <div style="margin-top:12px">
-          <label for="planetQ">SEBUTKAN SALAH SATU PLANET TEORI DAN JELASKAN?:</label>
-          <textarea id="planetQ" name="planetQ" placeholder="Tulis jawabanmu (jawaban tidak menentukan lolos)..."></textarea>
-          <div class="hint">Jawaban boleh apa saja — kami hanya menyimpan contoh jawaban untuk referensi.</div>
-        </div>
+    <label>Tanggal Lahir:</label>
+    <input type="date" id="tanggal">
 
-        <div style="display:flex;gap:10px;margin-top:16px;align-items:center">
-          <button type="submit" id="submitBtn" class="btn">🚀 DAFTAR & CEK</button>
-          <button type="button" id="copyLinkBtn" class="btn ghost" title="Salin link grup (hanya berfungsi setelah lulus)">🔗 Salin Link (jika lulus)</button>
-          <button type="button" id="resetBtn" class="btn ghost">🔄 Reset</button>
-        </div>
+    <label>Sebutkan salah satu planet teori & jelaskan:</label>
+    <textarea id="planet" rows="4"></textarea>
 
-        <div id="feedback" class="result" role="status" aria-live="polite"></div>
+    <button onclick="submitForm()">KIRIM PENDAFTARAN</button>
 
-        <div id="revealArea" class="reveal" aria-hidden="true">
-          <div style="font-weight:800">Selamat — kamu lulus seleksi!</div>
-          <div style="margin-top:8px"><a id="waLink" class="whatsapp-link" href="#" target="_blank" rel="noopener">Buka Grup WhatsApp</a></div>
-          <div class="small" style="margin-top:8px">Link hanya muncul setelah verifikasi umur.</div>
-        </div>
-      </form>
-
-      <footer class="app-footer">Data disimpan di browser (localStorage). Admin dapat meminta verifikasi identitas bila perlu.</footer>
-    </section>
-
-    <!-- right: control panel -->
-    <aside class="card panel" aria-labelledby="panel-title" style="z-index:2">
-      <div id="panel-title" class="title">Kontrol Audio & Info</div>
-      <p class="small" style="margin-top:8px">Tekan <strong>Aktifkan Audio</strong> atau tombol Play di bawah untuk mengizinkan suara. Browser butuh interaksi pengguna.</p>
-
-      <div class="control">
-        <div class="box">
-          <div style="font-weight:700">Soundtrack</div>
-          <div id="trackState" style="margin-top:6px" class="small">Stopped</div>
-        </div>
-
-        <div class="box">
-          <div style="font-weight:700">Volume</div>
-          <input id="volume" type="range" min="0" max="100" value="70" style="margin-top:6px;width:140px"/>
-        </div>
-      </div>
-
-      <div style="margin-top:14px">
-        <div style="font-weight:700">Aturan Seleksi</div>
-        <ul style="margin-top:8px;color:var(--muted);font-size:13px;padding-left:18px">
-          <li>Minimal umur: <strong id="minAgeLabel">15</strong> tahun.</li>
-          <li>Jika umur < 15 → Gagal otomatis.</li>
-          <li>Jika umur ≥ 15 → Lolos, terlepas dari isi jawaban.</li>
-        </ul>
-      </div>
-
-      <div style="margin-top:12px;font-size:13px;color:var(--muted)">
-        Ingin ganti link WA atau minimal umur? Edit variabel <code>WHATSAPP_LINK</code> dan <code>MIN_AGE</code> di skrip bawah.
-      </div>
-    </aside>
-  </div>
-
-  <div class="particles" aria-hidden="true">
-    <!-- decorative svg subtle -->
-    <svg width="100%" height="100%"><defs></defs></svg>
-  </div>
-
-  <div class="confetti" id="confetti"></div>
+    <div id="result"></div>
+</div>
 
 <script>
-/* ==============
-   CONFIG - ubah jika perlu
-   ============== */
-const WHATSAPP_LINK = "https://chat.whatsapp.com/KklL6Lx8wW30B9D4gZTyCM?mode=hqrt2"; // <-- link grupmu
-const MIN_AGE = 15; // minimal umur (orang dengan umur < MIN_AGE akan gagal)
+    const clickSound = document.getElementById("clickSound");
 
-/* ==============
-   Elemen DOM
-   ============== */
-const form = document.getElementById('regForm');
-const feedback = document.getElementById('feedback');
-const revealArea = document.getElementById('revealArea');
-const waLink = document.getElementById('waLink');
-const submitBtn = document.getElementById('submitBtn');
-const resetBtn = document.getElementById('resetBtn');
-const copyLinkBtn = document.getElementById('copyLinkBtn');
-const globalPlay = document.getElementById('globalPlay');
-const trackState = document.getElementById('trackState');
-const volumeRange = document.getElementById('volume');
-const confettiBox = document.getElementById('confetti');
-document.getElementById('minAgeBadge').textContent = MIN_AGE;
-document.getElementById('minAgeLabel').textContent = MIN_AGE;
-
-/* ==============
-   Audio (WebAudio) - click sound + ambient pad soundtrack
-   ============== */
-let audioCtx = null;
-let masterGain = null;
-let padInterval = null;
-let isPlaying = false;
-let clickGain = null;
-
-function initAudio(){
-  if(audioCtx) return;
-  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  masterGain = audioCtx.createGain();
-  masterGain.gain.value = parseInt(volumeRange.value)/100;
-  masterGain.connect(audioCtx.destination);
-
-  clickGain = audioCtx.createGain();
-  clickGain.gain.value = 0.9;
-  clickGain.connect(masterGain);
-}
-
-function playClick(){
-  try{
-    if(!audioCtx) initAudio();
-    const o = audioCtx.createOscillator();
-    const g = audioCtx.createGain();
-    o.type = 'square';
-    o.frequency.value = 1800;
-    g.gain.setValueAtTime(0.0001, audioCtx.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.45, audioCtx.currentTime + 0.002);
-    g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.06);
-    o.connect(g); g.connect(clickGain);
-    o.start(); o.stop(audioCtx.currentTime + 0.07);
-  }catch(e){}
-}
-
-function startPad(){
-  if(!audioCtx) initAudio();
-  if(isPlaying) return;
-  isPlaying = true;
-  trackState.textContent = "Playing";
-  globalPlay.textContent = "⏸️ Pause Audio";
-
-  const base = 110;
-  const chords = [[0,7,12],[3,7,10],[5,12,17]];
-  padInterval = setInterval(()=>{
-    const chord = chords[Math.floor(Math.random()*chords.length)];
-    chord.forEach((s,i)=>{
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = (i%2===0)?'sine':'triangle';
-      osc.frequency.value = base * Math.pow(2, s/12);
-      gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
-      gain.gain.linearRampToValueAtTime(0.12/(i+1), audioCtx.currentTime + 0.4);
-      gain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 4.6);
-      osc.connect(gain); gain.connect(masterGain);
-      osc.start(); osc.stop(audioCtx.currentTime + 4.6);
-    });
-  }, 3200);
-}
-
-function stopPad(){
-  if(!isPlaying) return;
-  isPlaying = false;
-  trackState.textContent = "Stopped";
-  globalPlay.textContent = "▶️ Aktifkan Audio";
-  if(padInterval){ clearInterval(padInterval); padInterval = null; }
-}
-
-/* volume */
-volumeRange.addEventListener('input', e=>{
-  if(masterGain) masterGain.gain.value = parseInt(e.target.value)/100;
-});
-
-/* globalPlay handler: resume audio on user gesture */
-globalPlay.addEventListener('click', async ()=>{
-  if(!audioCtx) initAudio();
-  if(audioCtx.state === 'suspended') await audioCtx.resume();
-  if(isPlaying) stopPad(); else startPad();
-});
-
-/* small click sound on interactions */
-['click','input','submit'].forEach(ev=>{
-  document.addEventListener(ev, ()=>{ try{ playClick(); }catch(e){} });
-});
-
-/* ==============
-   Age calculation - exact, careful
-   ============== */
-function calculateAge(dateString){
-  if(!dateString) return -1;
-  // careful digit-by-digit logic: create Date objects and compare year/month/day
-  const dob = new Date(dateString);
-  if(isNaN(dob)) return -1;
-  const now = new Date();
-  let age = now.getFullYear() - dob.getFullYear();
-  const monthDiff = now.getMonth() - dob.getMonth();
-  if(monthDiff < 0 || (monthDiff === 0 && now.getDate() < dob.getDate())){
-    age--;
-  }
-  return age;
-}
-
-/* ==============
-   Confetti burst
-   ============== */
-function burstConfetti(){
-  confettiBox.innerHTML = '';
-  const colors = ['#7df9ff','#9b7dff','#ffd166','#ff6b6b','#20c997'];
-  for(let i=0;i<36;i++){
-    const d = document.createElement('div');
-    d.className = 'piece';
-    d.style.left = Math.random()*100 + 'vw';
-    d.style.top = (Math.random()*10 - 12) + 'vh';
-    d.style.background = colors[Math.floor(Math.random()*colors.length)];
-    d.style.transform = 'rotate(' + (Math.random()*360) + 'deg)';
-    d.style.animationDelay = (Math.random()*0.2) + 's';
-    d.style.opacity = (0.7 + Math.random()*0.3);
-    confettiBox.appendChild(d);
-  }
-  confettiBox.style.display = 'block';
-  setTimeout(()=>{ confettiBox.style.display = 'none'; confettiBox.innerHTML = ''; }, 1600);
-}
-
-/* ==============
-   Form submit: only check age
-   ============== */
-form.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  feedback.style.display = 'none';
-  revealArea.style.display = 'none';
-  waLink.href = '#';
-
-  const name = document.getElementById('name').value.trim();
-  const dob = document.getElementById('dob').value;
-  const planetQ = document.getElementById('planetQ').value.trim();
-
-  // validations
-  if(name.length < 2){
-    feedback.textContent = "Nama terlalu singkat — tulis nama lengkapmu.";
-    feedback.className = 'result fail'; feedback.style.display = 'block';
-    return;
-  }
-  if(!dob){
-    feedback.textContent = "Silakan pilih tanggal lahirmu.";
-    feedback.className = 'result fail'; feedback.style.display = 'block';
-    return;
-  }
-
-  const age = calculateAge(dob);
-  if(age < 0){
-    feedback.textContent = "Format tanggal lahir tidak valid.";
-    feedback.className = 'result fail'; feedback.style.display = 'block';
-    return;
-  }
-
-  // only fail if age < MIN_AGE
-  if(age < MIN_AGE){
-    feedback.textContent = `Maaf — umur kamu ${age} tahun. Syarat minimal adalah ${MIN_AGE} tahun.`;
-    feedback.className = 'result fail'; feedback.style.display = 'block';
-    // store attempt (optional)
-    try{
-      const attempt = {name, dob, age, answer: planetQ, time: new Date().toISOString(), passed:false};
-      localStorage.setItem('iea_last_attempt', JSON.stringify(attempt));
-    }catch(e){}
-    return;
-  }
-
-  // success branch (accept regardless of answer)
-  feedback.textContent = `Selamat ${name}! Umur: ${age} tahun — kamu L O L O S ✅ (jawaban tidak berpengaruh). Link grup ditampilkan di bawah.`;
-  feedback.className = 'result ok'; feedback.style.display = 'block';
-
-  waLink.href = WHATSAPP_LINK;
-  revealArea.style.display = 'block';
-  waLink.setAttribute('aria-hidden','false');
-
-  // save registration for convenience
-  try{
-    const reg = {name, dob, age, answer: planetQ, time: new Date().toISOString()};
-    localStorage.setItem('iea_registration', JSON.stringify(reg));
-  }catch(e){}
-
-  // confetti + optional small audio flourish
-  burstConfetti();
-});
-
-/* copy link button (only works if link available) */
-copyLinkBtn.addEventListener('click', async ()=>{
-  const href = waLink.href;
-  if(!href || href === '#' || revealArea.style.display === 'none'){
-    alert('Link belum tersedia — kamu harus lolos dulu (umur minimal).');
-    return;
-  }
-  try{
-    await navigator.clipboard.writeText(href);
-    copyLinkBtn.textContent = '✅ Link disalin!';
-    setTimeout(()=>{ copyLinkBtn.textContent = '🔗 Salin Link (jika lulus)'; }, 1800);
-  }catch(e){
-    alert('Gagal menyalin. Silakan salin manual: ' + href);
-  }
-});
-
-/* reset */
-resetBtn.addEventListener('click', ()=>{
-  form.reset();
-  feedback.style.display = 'none';
-  revealArea.style.display = 'none';
-  waLink.href = '#';
-});
-
-/* prefill from localStorage if exists */
-window.addEventListener('load', ()=>{
-  try{
-    const saved = localStorage.getItem('iea_registration');
-    if(saved){
-      const s = JSON.parse(saved);
-      document.getElementById('name').value = s.name || '';
-      document.getElementById('dob').value = s.dob || '';
-      document.getElementById('planetQ').value = s.answer || '';
-      // auto-show reveal if previously registered (and still meets age)
-      const age = calculateAge(s.dob);
-      if(age >= MIN_AGE){
-        waLink.href = WHATSAPP_LINK;
-        revealArea.style.display = 'block';
-      }
+    function playClick() {
+        clickSound.currentTime = 0;
+        clickSound.play();
     }
-  }catch(e){}
-});
+
+    function submitForm() {
+        playClick();
+
+        const nama = document.getElementById("nama").value.trim();
+        const tanggal = document.getElementById("tanggal").value;
+        const planet = document.getElementById("planet").value.trim();
+        const result = document.getElementById("result");
+
+        if (!nama || !tanggal || !planet) {
+            result.style.display = "block";
+            result.style.color = "red";
+            result.innerHTML = "⚠️ Semua kolom harus diisi dulu ya.";
+            return;
+        }
+
+        const birthYear = new Date(tanggal).getFullYear();
+        const currentYear = new Date().getFullYear();
+        const age = currentYear - birthYear;
+
+        if (age < 15) {
+            result.style.display = "block";
+            result.style.color = "red";
+            result.innerHTML = `
+                ❌ <b>PENDAFTARAN DITOLAK</b><br>
+                Maaf <b>${nama}</b>, umur kamu <b>${age} tahun</b>. Minimal umur adalah <b>15 tahun</b>. 😢
+            `;
+            return;
+        }
+
+        result.style.display = "block";
+        result.style.color = "#00ffea";
+        result.innerHTML = `
+            ✅ <b>PENDAFTARAN BERHASIL!</b><br><br>
+            Selamat <b>${nama}</b>!<br>
+            Kamu resmi lolos pendaftaran IEA 🎉<br><br>
+            Klik link masuk grup:<br>
+            <a href="https://chat.whatsapp.com/KklL6Lx8wW30B9D4gZTyCM?mode=hqrt2" 
+               style="color:#00eaff; font-weight:700;" target="_blank">
+               👉 MASUK GRUP DISKUSI IEA
+            </a><br><br>
+            Tetap jujur & semangat belajar ya!
+        `;
+    }
 </script>
+
 </body>
 </html>
